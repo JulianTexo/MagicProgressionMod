@@ -2,6 +2,7 @@ package net.juliantexo.magicprogression.block.custom;
 
 import net.juliantexo.magicprogression.block.entity.ManaFurnaceBlockEntity;
 import net.juliantexo.magicprogression.block.entity.ModBlockEntities;
+import net.juliantexo.magicprogression.particle.ModParticles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -108,7 +109,8 @@ public class ManaFurnaceBlock extends AbstractFurnaceBlock {
             double d1 = (double)pPos.getY();
             double d2 = (double)pPos.getZ() + 0.5D;
             if (pRandom.nextDouble() < 0.1D) {
-                pLevel.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                pLevel.playLocalSound(d0, d1, d2, SoundEvents.BUBBLE_COLUMN_BUBBLE_POP, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                pLevel.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, true);
             }
 
             Direction direction = pState.getValue(FACING);
@@ -118,8 +120,7 @@ public class ManaFurnaceBlock extends AbstractFurnaceBlock {
             double d5 = direction$axis == Direction.Axis.X ? (double)direction.getStepX() * 0.52D : d4;
             double d6 = pRandom.nextDouble() * 6.0D / 16.0D;
             double d7 = direction$axis == Direction.Axis.Z ? (double)direction.getStepZ() * 0.52D : d4;
-            pLevel.addParticle(ParticleTypes.SMOKE, d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
-            pLevel.addParticle(ParticleTypes.FLAME, d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
+            pLevel.addParticle(ModParticles.PURPLE_BUBBLE_PARTICLE.get(), d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
         }
     }
 }

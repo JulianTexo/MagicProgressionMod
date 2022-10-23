@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.juliantexo.magicprogression.block.ModBlocks;
 import net.juliantexo.magicprogression.block.entity.ModBlockEntities;
 import net.juliantexo.magicprogression.item.ModItems;
+import net.juliantexo.magicprogression.particle.ModParticles;
 import net.juliantexo.magicprogression.recipe.ModRecipes;
 import net.juliantexo.magicprogression.screen.ManaFurnaceScreen;
 import net.juliantexo.magicprogression.screen.ModMenuTypes;
@@ -37,6 +38,7 @@ public class MagicProgression
         ModMenuTypes.register(modEventBus);
 
         ModRecipes.register(modEventBus);
+        ModParticles.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
