@@ -1,6 +1,8 @@
 package net.juliantexo.magicprogression;
 
 import com.mojang.logging.LogUtils;
+import net.juliantexo.magicprogression.block.ModBlocks;
+import net.juliantexo.magicprogression.item.ModItems;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -20,6 +22,9 @@ public class MagicProgression
     public MagicProgression()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

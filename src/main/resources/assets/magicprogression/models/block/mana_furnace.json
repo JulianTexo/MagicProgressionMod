@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "magicprogression:block/mana_furnace_front",
+    "side": "magicprogression:block/mana_furnace_side",
+    "top": "magicprogression:block/mana_furnace_top"
+  }
+}
