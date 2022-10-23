@@ -46,7 +46,7 @@ public class ManaFurnaceBlockEntity extends BlockEntity implements MenuProvider 
 
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 60;
+    private int maxProgress = 200;
 
     public ManaFurnaceBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.MANA_FURNACE.get(), blockPos, blockState);
@@ -166,7 +166,7 @@ public class ManaFurnaceBlockEntity extends BlockEntity implements MenuProvider 
         if(hasRecipe(pEntity)){
             pEntity.itemHandler.extractItem(0,1,false);
             pEntity.itemHandler.setStackInSlot(1, new ItemStack(recipe.get().getResultItem().getItem(),
-                    pEntity.itemHandler.getStackInSlot(3).getCount() + 1));
+                    pEntity.itemHandler.getStackInSlot(1).getCount() + 1));
 
             pEntity.resetProgress();
         }

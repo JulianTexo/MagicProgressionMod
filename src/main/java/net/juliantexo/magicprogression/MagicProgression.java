@@ -34,7 +34,6 @@ public class MagicProgression
         ModBlocks.register(modEventBus);
 
         ModBlockEntities.register(modEventBus);
-
         ModMenuTypes.register(modEventBus);
 
         ModRecipes.register(modEventBus);
