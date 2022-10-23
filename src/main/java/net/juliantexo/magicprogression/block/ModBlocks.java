@@ -22,7 +22,8 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, MagicProgression.MOD_ID);
 
     public static final RegistryObject<Block> MANA_FURNACE = registerBlock("mana_furnace",
-            () -> new ManaFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE)), ModItemGroup.TAB);
+            () -> new ManaFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .lightLevel(state -> state.getValue(ManaFurnaceBlock.LIT) ? 7 : 0)), ModItemGroup.TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

@@ -9,12 +9,12 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.Nullable;
 
 public class ManaFurnaceMenu extends AbstractContainerMenu {
-
     public final ManaFurnaceBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;

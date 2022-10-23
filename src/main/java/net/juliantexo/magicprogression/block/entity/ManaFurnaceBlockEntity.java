@@ -33,6 +33,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
+import static net.juliantexo.magicprogression.block.custom.ManaFurnaceBlock.LIT;
+
 public class ManaFurnaceBlockEntity extends BlockEntity implements MenuProvider {
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(3){
@@ -136,6 +138,7 @@ public class ManaFurnaceBlockEntity extends BlockEntity implements MenuProvider 
         }
 
         if(hasRecipe(pEntity)){
+            pEntity.getLevel().setBlock(blockPos, blockState.setValue(LIT, true), 3);
             pEntity.progress++;
             setChanged(level, blockPos, blockState);
 
@@ -143,6 +146,7 @@ public class ManaFurnaceBlockEntity extends BlockEntity implements MenuProvider 
                 craftItem(pEntity);
             }
         } else {
+            pEntity.getLevel().setBlock(blockPos, blockState.setValue(LIT, false), 3);
             pEntity.resetProgress();
             setChanged(level, blockPos,blockState);
         }

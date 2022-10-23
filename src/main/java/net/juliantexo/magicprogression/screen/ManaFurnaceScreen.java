@@ -41,7 +41,7 @@ public class ManaFurnaceScreen extends AbstractContainerScreen<ManaFurnaceMenu> 
 
     private void renderProgressArrow(PoseStack pPoseStack, int x, int y) {
         if(menu.isCrafting()) {
-            blit(pPoseStack, x + 97, y + 35, 176, 16, menu.getScaledProgress(), 16);
+            blit(pPoseStack, x + 79, y + 35, 176, 16, menu.getScaledProgress(), 16);
         }
     }
 
