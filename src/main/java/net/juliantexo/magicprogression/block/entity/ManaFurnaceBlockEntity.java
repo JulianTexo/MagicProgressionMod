@@ -2,6 +2,7 @@ package net.juliantexo.magicprogression.block.entity;
 
 import com.mojang.authlib.minecraft.client.MinecraftClient;
 import net.juliantexo.magicprogression.item.ModItems;
+import net.juliantexo.magicprogression.recipe.ManaFurnaceRecipe;
 import net.juliantexo.magicprogression.screen.ManaFurnaceMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -29,6 +30,8 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class ManaFurnaceBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -151,9 +154,18 @@ public class ManaFurnaceBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     private static void craftItem(ManaFurnaceBlockEntity pEntity) {
+        Level level = pEntity.level;
+        SimpleContainer inventory = new SimpleContainer(pEntity.itemHandler.getSlots());
+        for(int i = 0; i < pEntity.itemHandler.getSlots(); i++){
+            inventory.setItem(i, pEntity.itemHandler.getStackInSlot(i));
+        }
+
+        Optional<ManaFurnaceRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(ManaFurnaceRecipe.Type.INSTANCE, inventory, level);
+
         if(hasRecipe(pEntity)){
             pEntity.itemHandler.extractItem(0,1,false);
-            pEntity.itemHandler.setStackInSlot(1, new ItemStack(ModItems.MANA_CRYSTAL.get(),
+            pEntity.itemHandler.setStackInSlot(1, new ItemStack(recipe.get().getResultItem().getItem(),
                     pEntity.itemHandler.getStackInSlot(3).getCount() + 1));
 
             pEntity.resetProgress();
@@ -162,23 +174,26 @@ public class ManaFurnaceBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     private static boolean hasRecipe(ManaFurnaceBlockEntity entity) {
+        Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
         for(int i = 0; i < entity.itemHandler.getSlots(); i++){
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        boolean hasSmeltableMaterialInFirstSlot = !entity.itemHandler.getStackInSlot(0).isEmpty();
-        boolean hasManaCrystalInThirdSlot = entity.itemHandler.getStackInSlot(2).getItem() == ModItems.MANA_CRYSTAL.get();
+        Optional<ManaFurnaceRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(ManaFurnaceRecipe.Type.INSTANCE, inventory, level);
 
-        return hasSmeltableMaterialInFirstSlot && hasManaCrystalInThirdSlot && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, new ItemStack(ModItems.MANA_CRYSTAL.get(), 1));
+
+        return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory)
+                && canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem());
 
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack itemStack) {
-        return inventory.getItem(2).getItem() == itemStack.getItem() || inventory.getItem(2).isEmpty();
+        return inventory.getItem(1).getItem() == itemStack.getItem() || inventory.getItem(1).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount();
+        return inventory.getItem(1).getMaxStackSize() > inventory.getItem(1).getCount();
     }
 }

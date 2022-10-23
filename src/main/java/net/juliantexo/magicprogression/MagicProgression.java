@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.juliantexo.magicprogression.block.ModBlocks;
 import net.juliantexo.magicprogression.block.entity.ModBlockEntities;
 import net.juliantexo.magicprogression.item.ModItems;
+import net.juliantexo.magicprogression.recipe.ModRecipes;
 import net.juliantexo.magicprogression.screen.ManaFurnaceScreen;
 import net.juliantexo.magicprogression.screen.ModMenuTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -35,6 +36,8 @@ public class MagicProgression
         ModBlockEntities.register(modEventBus);
 
         ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
