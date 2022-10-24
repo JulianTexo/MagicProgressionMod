@@ -35,7 +35,7 @@ public class ManaFurnaceMenu extends AbstractContainerMenu {
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler, 0, 56, 17));
-            this.addSlot(new SlotItemHandler(handler, 1, 112, 31));
+            this.addSlot(new SlotItemHandler(handler, 1, 116, 35));
             this.addSlot(new SlotItemHandler(handler, 2, 56, 53));
         });
 
