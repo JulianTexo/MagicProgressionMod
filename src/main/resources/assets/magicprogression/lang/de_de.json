@@ -1,0 +1,16 @@
+{
+  "item.magicprogression.mana_crystal": "Mana Kristall",
+
+  "item.magicprogression.stone_rod": "Stein Stab",
+  "item.magicprogression.iron_rod": "Eisen Stab",
+  "item.magicprogression.gold_rod": "Gold Stab",
+    "item.magicprogression.diamond_rod": "Diamant Stab",
+
+  "item.magicprogression.wooden_mining_wand": "Holz Abbau Zauberstab",
+  "item.magicprogression.stone_mining_wand": "Stein Abbau Zauberstab",
+  "item.magicprogression.iron_mining_wand": "Eisen Abbau Zauberstab",
+  "item.magicprogression.gold_mining_wand": "Gold Abbau Zauberstab",
+  "item.magicprogression.diamond_mining_wand": "Diamant Abbau Zauberstab",
+
+  "block.magicprogression.mana_furnace": "Mana Ofen"
+}
