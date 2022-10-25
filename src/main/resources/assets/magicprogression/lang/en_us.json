@@ -1,5 +1,16 @@
 {
   "item.magicprogression.mana_crystal": "Mana Crystal",
 
+  "item.magicprogression.stone_rod": "Stone Rod",
+  "item.magicprogression.iron_rod": "Iron Rod",
+  "item.magicprogression.gold_rod": "Gold Rod",
+    "item.magicprogression.diamond_rod": "Diamond Rod",
+
+  "item.magicprogression.wooden_mining_wand": "Wooden Mining Wand",
+  "item.magicprogression.stone_mining_wand": "Stone Mining Wand",
+  "item.magicprogression.iron_mining_wand": "Iron Mining Wand",
+  "item.magicprogression.gold_mining_wand": "Gold Mining Wand",
+  "item.magicprogression.diamond_mining_wand": "Diamond Mining Wand",
+
   "block.magicprogression.mana_furnace": "Mana Furnace"
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "magicprogression:item/wooden_mining_wand"
+  }
+}

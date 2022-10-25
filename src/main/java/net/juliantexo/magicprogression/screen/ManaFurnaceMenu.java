@@ -46,12 +46,24 @@ public class ManaFurnaceMenu extends AbstractContainerMenu {
         return data.get(0) > 0;
     }
 
-    public int getScaledProgress(){
+    public int getScaledProgressForArrow(){
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1); // Max Progress
         int progressArrowSize = 26;
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
+
+    public int getScaledProgressForBubbles(){
+        int progress = this.data.get(0);
+        int maxProgress = this.data.get(1); // Max Progress
+        int progressArrowSize = 16;
+
+        return maxProgress != 0 && progress != 0 ? (int)mapNumber(progress, 0, maxProgress, 0, progressArrowSize) : 0;
+    }
+
+    public static double mapNumber(double value, double rangeMin, double rangeMax, double resultMin, double resultMax) {
+        return (value - rangeMin) / (rangeMax - rangeMin) * (resultMax - resultMin) + resultMin;
     }
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
