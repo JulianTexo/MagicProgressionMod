@@ -18,7 +18,7 @@ import net.minecraft.world.item.ItemStack;
 public class ManaFurnaceRecipeCategory implements IRecipeCategory<ManaFurnaceRecipe> {
     public final static ResourceLocation UID = new ResourceLocation(MagicProgression.MOD_ID, "mana_smelting");
     public final static ResourceLocation TEXTURE =
-            new ResourceLocation(MagicProgression.MOD_ID, "textures/gui/mana_furnace.png");
+            new ResourceLocation(MagicProgression.MOD_ID, "textures/gui/mana_furnace_gui.png");
 
     private final IDrawable background;
     private final IDrawable icon;
