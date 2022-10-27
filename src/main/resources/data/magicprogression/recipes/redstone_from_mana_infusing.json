@@ -1,0 +1,14 @@
+{
+  "type": "magicprogression:mana_infusing",
+  "ingredients": [
+    {
+     "item": "magicprogression:mana_crystal"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "output": {
+    "item": "minecraft:redstone"
+  }
+}

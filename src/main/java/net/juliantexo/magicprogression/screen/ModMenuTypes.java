@@ -16,6 +16,8 @@ public class ModMenuTypes {
 
     public static final RegistryObject<MenuType<ManaFurnaceMenu>> MANA_FURNACE_MENU =
             registerMenuType(ManaFurnaceMenu::new, "mana_furnace_menu");
+    public static final RegistryObject<MenuType<ManaInfusingStationMenu>> MANA_INFUSING_STATION_MENU =
+            registerMenuType(ManaInfusingStationMenu::new, "mana_infusing_station_menu");
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory,
                                                                                                   String name) {

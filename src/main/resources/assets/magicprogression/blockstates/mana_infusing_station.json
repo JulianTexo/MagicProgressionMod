@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "magicprogression:block/mana_infusing_station",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "magicprogression:block/mana_infusing_station"
+    },
+    "facing=south": {
+      "model": "magicprogression:block/mana_infusing_station",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "magicprogression:block/mana_infusing_station",
+      "y": 270
+    }
+  }
+}

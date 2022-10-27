@@ -16,6 +16,8 @@ public class ModRecipes {
 
     public static final RegistryObject<RecipeSerializer<ManaFurnaceRecipe>> MANA_SMELTING_SERIALIZER =
             SERIALIZERS.register("mana_smelting", () -> ManaFurnaceRecipe.Serializer.INSTANCE);
+    public static final RegistryObject<RecipeSerializer<ManaInfusingRecipe>> MANA_INFUSING =
+            SERIALIZERS.register("mana_infusing", () -> ManaInfusingRecipe.Serializer.INSTANCE);
 
     public static void register(IEventBus eventBus){
         SERIALIZERS.register(eventBus);

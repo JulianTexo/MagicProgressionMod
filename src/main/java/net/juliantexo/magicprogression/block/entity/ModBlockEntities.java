@@ -18,6 +18,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("mana_furnace", () ->
                     BlockEntityType.Builder.of(ManaFurnaceBlockEntity::new, ModBlocks.MANA_FURNACE.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<ManaInfusingStationBlockEntity>> MANA_INFUSING_STATION =
+            BLOCK_ENTITIES.register("mana_infusing_station", () ->
+                    BlockEntityType.Builder.of(ManaInfusingStationBlockEntity::new, ModBlocks.MANA_INFUSING_STATION.get()).build(null));
+
     public static void register(IEventBus eventBus){
         BLOCK_ENTITIES.register(eventBus);
     }

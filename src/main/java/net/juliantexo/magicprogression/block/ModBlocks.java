@@ -2,6 +2,7 @@ package net.juliantexo.magicprogression.block;
 
 import net.juliantexo.magicprogression.MagicProgression;
 import net.juliantexo.magicprogression.block.custom.ManaFurnaceBlock;
+import net.juliantexo.magicprogression.block.custom.ManaInfusingStationBlock;
 import net.juliantexo.magicprogression.item.ModItemGroup;
 import net.juliantexo.magicprogression.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -24,6 +25,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> MANA_FURNACE = registerBlock("mana_furnace",
             () -> new ManaFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .lightLevel(state -> state.getValue(ManaFurnaceBlock.LIT) ? 7 : 0)), ModItemGroup.TAB);
+
+    public static final RegistryObject<Block> MANA_INFUSING_STATION = registerBlock("mana_infusing_station",
+            () -> new ManaInfusingStationBlock(BlockBehaviour.Properties.of(Material.STONE)), ModItemGroup.TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

@@ -7,6 +7,8 @@ import net.juliantexo.magicprogression.item.ModItems;
 import net.juliantexo.magicprogression.particle.ModParticles;
 import net.juliantexo.magicprogression.recipe.ModRecipes;
 import net.juliantexo.magicprogression.screen.ManaFurnaceScreen;
+import net.juliantexo.magicprogression.screen.ManaInfusingStationMenu;
+import net.juliantexo.magicprogression.screen.ManaInfusingStationScreen;
 import net.juliantexo.magicprogression.screen.ModMenuTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.NonNullList;
@@ -57,6 +59,7 @@ public class MagicProgression
         public static void onClientSetup(FMLClientSetupEvent event) {
 
             MenuScreens.register(ModMenuTypes.MANA_FURNACE_MENU.get(), ManaFurnaceScreen::new);
+            MenuScreens.register(ModMenuTypes.MANA_INFUSING_STATION_MENU.get(), ManaInfusingStationScreen::new);
         }
     }
 
