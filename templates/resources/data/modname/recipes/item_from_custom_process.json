@@ -1,0 +1,17 @@
+{
+  "type": "magicprogression:mana_infusing",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+     "item": "magicprogression:mana_crystal"
+    }
+  ],
+  "output": {
+    "item": "minecraft:diamond"
+  }
+}
