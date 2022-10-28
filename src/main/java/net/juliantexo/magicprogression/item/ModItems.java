@@ -17,6 +17,8 @@ public class ModItems {
     //ITEMS
     public static final RegistryObject<Item> MANA_CRYSTAL = ITEMS.register("mana_crystal",
             () -> new Item(new Item.Properties().tab(ModItemGroup.TAB)));
+    public static final RegistryObject<Item> MANA_INGOT = ITEMS.register("mana_ingot",
+            () -> new Item(new Item.Properties().tab(ModItemGroup.TAB)));
 
     //RODS
     public static final RegistryObject<Item> STONE_ROD = ITEMS.register("stone_rod",
