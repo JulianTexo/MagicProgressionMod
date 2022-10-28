@@ -14,6 +14,8 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.Nullable;
 
+import static net.juliantexo.magicprogression.MathHelper.mapNumber;
+
 public class ManaFurnaceMenu extends AbstractContainerMenu {
     public final ManaFurnaceBlockEntity blockEntity;
     private final Level level;
@@ -62,9 +64,7 @@ public class ManaFurnaceMenu extends AbstractContainerMenu {
         return maxProgress != 0 && progress != 0 ? (int)mapNumber(progress, 0, maxProgress, 0, progressArrowSize) : 0;
     }
 
-    public static double mapNumber(double value, double rangeMin, double rangeMax, double resultMin, double resultMax) {
-        return (value - rangeMin) / (rangeMax - rangeMin) * (resultMax - resultMin) + resultMin;
-    }
+
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
     // must assign a slot number to each of the slots used by the GUI.

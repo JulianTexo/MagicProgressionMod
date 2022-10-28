@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.juliantexo.magicprogression.block.ModBlocks;
 import net.juliantexo.magicprogression.block.entity.ModBlockEntities;
 import net.juliantexo.magicprogression.item.ModItems;
+import net.juliantexo.magicprogression.networking.ModMessages;
 import net.juliantexo.magicprogression.particle.ModParticles;
 import net.juliantexo.magicprogression.recipe.ModRecipes;
 import net.juliantexo.magicprogression.screen.ManaFurnaceScreen;
@@ -49,6 +50,9 @@ public class MagicProgression
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        event.enqueueWork(() -> {
+            ModMessages.register();
+        });
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
