@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "magicprogression:mana_crystal_ore",
+    {
+      "id": "magicprogression:mineable_with_wand",
+      "required": false
+    }
+  ]
+}
