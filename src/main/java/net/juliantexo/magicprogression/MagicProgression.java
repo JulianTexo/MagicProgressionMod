@@ -11,6 +11,8 @@ import net.juliantexo.magicprogression.screen.ManaFurnaceScreen;
 import net.juliantexo.magicprogression.screen.ManaInfusingStationMenu;
 import net.juliantexo.magicprogression.screen.ManaInfusingStationScreen;
 import net.juliantexo.magicprogression.screen.ModMenuTypes;
+import net.juliantexo.magicprogression.world.feature.ModConfiguredFeatures;
+import net.juliantexo.magicprogression.world.feature.ModPlacedFeatures;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
@@ -42,6 +44,9 @@ public class MagicProgression
 
         ModRecipes.register(modEventBus);
         ModParticles.register(modEventBus);
+
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
