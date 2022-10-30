@@ -13,6 +13,12 @@
   "item.magicprogression.gold_mining_wand": "Gold Mining Wand",
   "item.magicprogression.diamond_mining_wand": "Diamond Mining Wand",
 
+  "item.magicprogression.wooden_combat_wand": "Wooden Combat Wand",
+  "item.magicprogression.stone_combat_wand": "Stone Combat Wand",
+  "item.magicprogression.gold_combat_wand": "Gold Combat Wand",
+  "item.magicprogression.iron_combat_wand": "Iron Combat Wand",
+  "item.magicprogression.diamond_combat_wand": "Diamond Combat Wand",
+
   "block.magicprogression.mana_furnace": "Mana Furnace",
   "block.magicprogression.mana_infusing_station": "Mana Infusing Station",
   "block.magicprogression.mana_crystal_ore": "Mana Crystal Ore",

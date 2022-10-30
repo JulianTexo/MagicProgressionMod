@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "magicprogression:item/iron_combat_wand"
+  }
+}

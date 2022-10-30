@@ -1,6 +1,7 @@
 package net.juliantexo.magicprogression.item;
 
 import net.juliantexo.magicprogression.MagicProgression;
+import net.juliantexo.magicprogression.item.custom.CombatWandItem;
 import net.juliantexo.magicprogression.item.custom.MiningWandItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -33,15 +34,37 @@ public class ModItems {
 
     //TOOLS
     public static final RegistryObject<Item> WOODEN_MINING_WAND = ITEMS.register("wooden_mining_wand",
-            () -> new MiningWandItem(Tiers.WOOD, 1, -2.8F, (new Item.Properties()).tab(CreativeModeTab.TAB_TOOLS)));
+            () -> new MiningWandItem(Tiers.WOOD, 1, -2.8F,
+                    (new Item.Properties()).tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> STONE_MINING_WAND = ITEMS.register("stone_mining_wand",
-            () -> new MiningWandItem(Tiers.STONE, 1, -2.8F, (new Item.Properties()).tab(CreativeModeTab.TAB_TOOLS)));
+            () -> new MiningWandItem(Tiers.STONE, 1, -2.8F,
+                    (new Item.Properties()).tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> IRON_MINING_WAND = ITEMS.register("iron_mining_wand",
-            () -> new MiningWandItem(Tiers.IRON, 1, -2.8F, (new Item.Properties()).tab(CreativeModeTab.TAB_TOOLS)));
+            () -> new MiningWandItem(Tiers.IRON, 1, -2.8F,
+                    (new Item.Properties()).tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> GOLD_MINING_WAND = ITEMS.register("gold_mining_wand",
-            () -> new MiningWandItem(Tiers.GOLD, 1, -2.8F, (new Item.Properties()).tab(CreativeModeTab.TAB_TOOLS)));
+            () -> new MiningWandItem(Tiers.GOLD, 1, -2.8F,
+                    (new Item.Properties()).tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> DIAMOND_MINING_WAND = ITEMS.register("diamond_mining_wand",
-            () -> new MiningWandItem(Tiers.DIAMOND, 1, -2.8F, (new Item.Properties()).tab(CreativeModeTab.TAB_TOOLS)));
+            () -> new MiningWandItem(Tiers.DIAMOND, 1, -2.8F,
+                    (new Item.Properties()).tab(CreativeModeTab.TAB_TOOLS)));
+
+    //COMBAT WANDS
+    public static final RegistryObject<Item> WOODEN_COMBAT_WAND = ITEMS.register("wooden_combat_wand",
+            () -> new CombatWandItem(Tiers.WOOD, 3, -2.4f,
+                    (new Item.Properties()).tab(CreativeModeTab.TAB_COMBAT)));
+    public static final RegistryObject<Item> STONE_COMBAT_WAND = ITEMS.register("stone_combat_wand",
+            () -> new CombatWandItem(Tiers.STONE, 3, -2.4f,
+                    (new Item.Properties()).tab(CreativeModeTab.TAB_COMBAT)));
+    public static final RegistryObject<Item> IRON_COMBAT_WAND = ITEMS.register("iron_combat_wand",
+            () -> new CombatWandItem(Tiers.IRON, 3, -2.4f,
+                    (new Item.Properties()).tab(CreativeModeTab.TAB_COMBAT)));
+    public static final RegistryObject<Item> GOLD_COMBAT_WAND = ITEMS.register("gold_combat_wand",
+            () -> new CombatWandItem(Tiers.GOLD, 3, -2.4f,
+                    (new Item.Properties()).tab(CreativeModeTab.TAB_COMBAT)));
+    public static final RegistryObject<Item> DIAMOND_COMBAT_WAND = ITEMS.register("diamond_combat_wand",
+            () -> new CombatWandItem(Tiers.DIAMOND, 3, -2.4f,
+                    (new Item.Properties()).tab(CreativeModeTab.TAB_COMBAT)));
 
 
 
