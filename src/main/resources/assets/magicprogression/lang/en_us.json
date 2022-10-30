@@ -15,5 +15,12 @@
 
   "block.magicprogression.mana_furnace": "Mana Furnace",
   "block.magicprogression.mana_infusing_station": "Mana Infusing Station",
-  "block.magicprogression.mana_crystal_ore": "Mana Crystal Ore"
+  "block.magicprogression.mana_crystal_ore": "Mana Crystal Ore",
+
+  "advancements.magicstory.mine_mana_crystal.title": "How it all started!",
+  "advancements.magicstory.mine_mana_crystal.description": "Mine Mana Crystal Ore; start your magic journey!",
+  "advancements.magicstory.root.title": "Magic Progression",
+  "advancements.magicstory.root.description": "Your journey will be magical!"
+
+
 }

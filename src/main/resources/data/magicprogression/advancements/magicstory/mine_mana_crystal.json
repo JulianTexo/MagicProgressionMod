@@ -1,0 +1,35 @@
+{
+  "parent": "magicprogression:magicstory/root",
+  "criteria": {
+    "get_mana_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "item": "magicprogression:mana_crystal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.magicstory.mine_mana_crystal.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "magicprogression:mana_crystal"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.magicstory.mine_mana_crystal.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_mana_crystal"
+    ]
+  ]
+}

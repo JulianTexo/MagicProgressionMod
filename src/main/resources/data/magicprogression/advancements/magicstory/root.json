@@ -1,0 +1,37 @@
+{
+  "criteria": {
+    "mining_wand": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "magicprogression:wooden_mining_wand"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "description": {
+      "translate": "advancements.magicstory.root.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "magicprogression:wooden_mining_wand"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.magicstory.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "mining_wand"
+    ]
+  ]
+}
