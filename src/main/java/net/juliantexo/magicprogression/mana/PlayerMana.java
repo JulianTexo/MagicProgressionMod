@@ -1,6 +1,9 @@
 package net.juliantexo.magicprogression.mana;
 
+import net.juliantexo.magicprogression.networking.ModMessages;
+import net.juliantexo.magicprogression.networking.packet.ManaDataSyncS2CPacket;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.common.capabilities.AutoRegisterCapability;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
@@ -17,6 +20,7 @@ public class PlayerMana  {
 
     public void addMana(int add){
         this.mana = Math.min(mana + add, MAX_MANA);
+
     }
 
     public void subMana(int sub){

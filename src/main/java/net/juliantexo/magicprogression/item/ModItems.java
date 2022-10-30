@@ -1,6 +1,7 @@
 package net.juliantexo.magicprogression.item;
 
 import net.juliantexo.magicprogression.MagicProgression;
+import net.juliantexo.magicprogression.item.custom.ChargedCrystalItem;
 import net.juliantexo.magicprogression.item.custom.CombatWandItem;
 import net.juliantexo.magicprogression.item.custom.MiningWandItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -16,8 +17,10 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, MagicProgression.MOD_ID);
 
     //ITEMS
-    public static final RegistryObject<Item> MANA_CRYSTAL = ITEMS.register("mana_crystal",
+    public static final RegistryObject<Item> MANA_CRYSTAL_SHARD = ITEMS.register("mana_crystal_shard",
             () -> new Item(new Item.Properties().tab(ModItemGroup.TAB)));
+    public static final RegistryObject<Item> MANA_CRYSTAL = ITEMS.register("mana_crystal",
+            () -> new ChargedCrystalItem(new Item.Properties().tab(ModItemGroup.TAB).stacksTo(1), 250));
     public static final RegistryObject<Item> MANA_INGOT = ITEMS.register("mana_ingot",
             () -> new Item(new Item.Properties().tab(ModItemGroup.TAB)));
 
