@@ -115,7 +115,7 @@ public class ManaFurnaceMenu extends AbstractContainerMenu {
         return copyOfSourceStack;
     }
 
-    public ManaFurnaceBlockEntity getBLockEntity() {
+    public ManaFurnaceBlockEntity getBlockEntity() {
         return this.blockEntity;
     }
 

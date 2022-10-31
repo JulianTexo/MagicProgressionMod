@@ -25,7 +25,6 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -166,7 +165,7 @@ public class ManaFurnaceBlockEntity extends BlockEntity implements MenuProvider 
             return;
         }
 
-        if(hasManaCrystalInFourthSlot(pEntity)){
+        if(hasManaCrystalInThirdSlot(pEntity)){
             pEntity.ENERGY_STORAGE.receiveEnergy(60, false);
         }
 
@@ -195,7 +194,7 @@ public class ManaFurnaceBlockEntity extends BlockEntity implements MenuProvider 
         return pEntity.ENERGY_STORAGE.getEnergyStored() >= MANA_REQ * (pEntity.maxProgress - pEntity.progress);
     }
 
-    private static boolean hasManaCrystalInFourthSlot(ManaFurnaceBlockEntity pEntity) {
+    private static boolean hasManaCrystalInThirdSlot(ManaFurnaceBlockEntity pEntity) {
         return pEntity.itemHandler.getStackInSlot(2).getItem() == ModItems.MANA_CRYSTAL.get();
     }
 

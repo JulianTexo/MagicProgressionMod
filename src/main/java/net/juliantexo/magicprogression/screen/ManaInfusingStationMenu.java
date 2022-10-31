@@ -2,6 +2,7 @@ package net.juliantexo.magicprogression.screen;
 
 import net.juliantexo.magicprogression.block.ModBlocks;
 import net.juliantexo.magicprogression.block.entity.ManaInfusingStationBlockEntity;
+import net.minecraft.commands.arguments.coordinates.Coordinates;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -102,6 +103,10 @@ public class ManaInfusingStationMenu extends AbstractContainerMenu {
         }
         sourceSlot.onTake(playerIn, sourceStack);
         return copyOfSourceStack;
+    }
+
+    public ManaInfusingStationBlockEntity getBlockEntity() {
+        return this.blockEntity;
     }
 
     @Override

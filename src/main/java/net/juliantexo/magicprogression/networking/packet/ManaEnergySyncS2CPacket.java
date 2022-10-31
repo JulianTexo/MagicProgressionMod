@@ -1,10 +1,9 @@
 package net.juliantexo.magicprogression.networking.packet;
 
-import net.juliantexo.magicprogression.block.custom.ManaFurnaceBlock;
 import net.juliantexo.magicprogression.block.entity.ManaFurnaceBlockEntity;
-import net.juliantexo.magicprogression.client.ClientManaData;
+import net.juliantexo.magicprogression.block.entity.ManaInfusingStationBlockEntity;
 import net.juliantexo.magicprogression.screen.ManaFurnaceMenu;
-import net.juliantexo.magicprogression.screen.ManaFurnaceScreen;
+import net.juliantexo.magicprogression.screen.ManaInfusingStationMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -39,8 +38,18 @@ public class ManaEnergySyncS2CPacket {
                 blockEntity.setEneryLevel(mana);
 
                 if(Minecraft.getInstance().player.containerMenu instanceof ManaFurnaceMenu menu &&
-                menu.getBLockEntity().getBlockPos() == pos){
+                menu.getBlockEntity().getBlockPos() == pos){
                     blockEntity.setEneryLevel(mana);
+                }
+
+            }
+            if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof ManaInfusingStationBlockEntity blockEntity){
+
+                blockEntity.setEnergyLevel(mana);
+
+                if(Minecraft.getInstance().player.containerMenu instanceof ManaInfusingStationMenu menu &&
+                        menu.getBlockEntity().getBlockPos() == pos){
+                    blockEntity.setEnergyLevel(mana);
                 }
 
             }

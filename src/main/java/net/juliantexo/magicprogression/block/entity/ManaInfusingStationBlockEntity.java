@@ -1,7 +1,11 @@
 package net.juliantexo.magicprogression.block.entity;
 
+import net.juliantexo.magicprogression.item.ModItems;
+import net.juliantexo.magicprogression.networking.ModMessages;
+import net.juliantexo.magicprogression.networking.packet.ManaEnergySyncS2CPacket;
 import net.juliantexo.magicprogression.recipe.ManaInfusingRecipe;
 import net.juliantexo.magicprogression.screen.ManaInfusingStationMenu;
+import net.juliantexo.magicprogression.util.ModMachineMana;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -20,6 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -36,7 +41,18 @@ public class ManaInfusingStationBlockEntity extends BlockEntity implements MenuP
         }
     };
 
+    private final ModMachineMana ENERGY_STORAGE = new ModMachineMana(50000, 150) {
+        @Override
+        public void onEnergyChanged() {
+            setChanged();
+            ModMessages.sendToClients(new ManaEnergySyncS2CPacket(this.energy, getBlockPos()));
+        }
+    };
+
+    private static final int MANA_REQ = 10;
+
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+    private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 
     protected final ContainerData data;
     private int progress = 0;
@@ -81,8 +97,20 @@ public class ManaInfusingStationBlockEntity extends BlockEntity implements MenuP
         return new ManaInfusingStationMenu(id, inventory, this, this.data);
     }
 
+    public IEnergyStorage getEnergyStorage() {
+        return ENERGY_STORAGE;
+    }
+
+    public void setEnergyLevel(int mana) {
+        this.ENERGY_STORAGE.setEnergy(mana);
+    }
+
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+        if(cap == ForgeCapabilities.ENERGY){
+            return lazyEnergyHandler.cast();
+        }
+
         if(cap == ForgeCapabilities.ITEM_HANDLER){
             return lazyItemHandler.cast();
         }
@@ -94,18 +122,21 @@ public class ManaInfusingStationBlockEntity extends BlockEntity implements MenuP
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
+        lazyEnergyHandler = LazyOptional.of(() -> ENERGY_STORAGE);
     }
 
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
         lazyItemHandler.invalidate();
+        lazyEnergyHandler.invalidate();
     }
 
     @Override
     protected void saveAdditional(CompoundTag nbt) {
         nbt.put("inventory", itemHandler.serializeNBT());
         nbt.putInt("mana_infusing_station.progress", this.progress);
+        nbt.putInt("mana_infusing_station_energy", ENERGY_STORAGE.getEnergyStored());
 
         super.saveAdditional(nbt);
     }
@@ -115,6 +146,7 @@ public class ManaInfusingStationBlockEntity extends BlockEntity implements MenuP
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
         progress = nbt.getInt("mana_infusing_station.progress");
+        ENERGY_STORAGE.setEnergy(nbt.getInt("mana_infusing_station_energy"));
     }
 
     public void drops(){
@@ -131,18 +163,36 @@ public class ManaInfusingStationBlockEntity extends BlockEntity implements MenuP
             return;
         }
 
-        if(hasRecipe(pEntity)){
-            pEntity.progress++;
-            setChanged(level, blockPos, blockState);
+        if(hasManaCrystalInSecondSlot(pEntity)){
+            pEntity.ENERGY_STORAGE.receiveEnergy(60, false);
+        }
 
-            if(pEntity.progress >= pEntity.maxProgress){
-                craftItem(pEntity);
-            }
+        if(hasRecipe(pEntity) && hasEnoughEnergy(pEntity)){
+
+                pEntity.progress++;
+                extractEnergy(pEntity);
+                setChanged(level, blockPos, blockState);
+
+                if (pEntity.progress >= pEntity.maxProgress) {
+                    craftItem(pEntity);
+                }
         } else {
             pEntity.resetProgress();
             setChanged(level, blockPos,blockState);
         }
 
+    }
+
+    private static void extractEnergy(ManaInfusingStationBlockEntity pEntity) {
+        pEntity.ENERGY_STORAGE.extractEnergy(MANA_REQ, false);
+    }
+
+    private static boolean hasEnoughEnergy(ManaInfusingStationBlockEntity pEntity) {
+        return pEntity.ENERGY_STORAGE.getEnergyStored() >= MANA_REQ * (pEntity.maxProgress - pEntity.progress);
+    }
+
+    private static boolean hasManaCrystalInSecondSlot(ManaInfusingStationBlockEntity pEntity) {
+        return pEntity.itemHandler.getStackInSlot(1).getItem() == ModItems.MANA_CRYSTAL.get();
     }
 
     private void resetProgress() {
