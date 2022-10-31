@@ -1,6 +1,6 @@
 package net.juliantexo.magicprogression.client;
 
-import static net.juliantexo.magicprogression.MathHelper.mapNumber;
+import static net.juliantexo.magicprogression.util.MathHelper.mapNumber;
 
 public class ClientManaData {
     private static int playerMana;

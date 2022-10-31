@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 
-import static net.juliantexo.magicprogression.MathHelper.mapNumber;
+import static net.juliantexo.magicprogression.util.MathHelper.mapNumber;
 
 public class ManaFurnaceMenu extends AbstractContainerMenu {
     public final ManaFurnaceBlockEntity blockEntity;
@@ -115,6 +115,10 @@ public class ManaFurnaceMenu extends AbstractContainerMenu {
         return copyOfSourceStack;
     }
 
+    public ManaFurnaceBlockEntity getBLockEntity() {
+        return this.blockEntity;
+    }
+
     @Override
     public boolean stillValid(Player player) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
@@ -134,4 +138,5 @@ public class ManaFurnaceMenu extends AbstractContainerMenu {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
+
 }

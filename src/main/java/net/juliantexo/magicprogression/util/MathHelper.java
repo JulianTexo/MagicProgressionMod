@@ -1,4 +1,4 @@
-package net.juliantexo.magicprogression;
+package net.juliantexo.magicprogression.util;
 
 public class MathHelper {
 
