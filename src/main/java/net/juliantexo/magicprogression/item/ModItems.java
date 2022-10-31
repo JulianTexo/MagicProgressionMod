@@ -21,7 +21,11 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModItemGroup.TAB)));
     public static final RegistryObject<Item> MANA_CRYSTAL = ITEMS.register("mana_crystal",
             () -> new ChargedCrystalItem(new Item.Properties().tab(ModItemGroup.TAB).stacksTo(1), 250));
+
+    //Ingots
     public static final RegistryObject<Item> MANA_INGOT = ITEMS.register("mana_ingot",
+            () -> new Item(new Item.Properties().tab(ModItemGroup.TAB)));
+    public static final RegistryObject<Item> ADVANCED_MANA_INGOT = ITEMS.register("advanced_mana_ingot",
             () -> new Item(new Item.Properties().tab(ModItemGroup.TAB)));
 
     //RODS

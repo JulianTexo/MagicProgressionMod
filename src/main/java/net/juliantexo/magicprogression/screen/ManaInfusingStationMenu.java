@@ -1,17 +1,15 @@
 package net.juliantexo.magicprogression.screen;
 
 import net.juliantexo.magicprogression.block.ModBlocks;
-import net.juliantexo.magicprogression.block.entity.ManaFurnaceBlockEntity;
 import net.juliantexo.magicprogression.block.entity.ManaInfusingStationBlockEntity;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class ManaInfusingStationMenu extends AbstractContainerMenu {
@@ -33,7 +31,7 @@ public class ManaInfusingStationMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
+        this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler, 0, 59, 20));
             this.addSlot(new SlotItemHandler(handler, 1, 79, 17));
             this.addSlot(new SlotItemHandler(handler, 2, 99, 20));

@@ -1,8 +1,6 @@
 package net.juliantexo.magicprogression.block.entity;
 
-import net.juliantexo.magicprogression.recipe.ManaFurnaceRecipe;
 import net.juliantexo.magicprogression.recipe.ManaInfusingRecipe;
-import net.juliantexo.magicprogression.screen.ManaFurnaceMenu;
 import net.juliantexo.magicprogression.screen.ManaInfusingStationMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -20,16 +18,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
-
-import static net.juliantexo.magicprogression.block.custom.ManaFurnaceBlock.LIT;
 
 public class ManaInfusingStationBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -87,7 +83,7 @@ public class ManaInfusingStationBlockEntity extends BlockEntity implements MenuP
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
+        if(cap == ForgeCapabilities.ITEM_HANDLER){
             return lazyItemHandler.cast();
         }
 
