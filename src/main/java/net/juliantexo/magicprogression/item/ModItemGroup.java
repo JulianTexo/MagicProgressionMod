@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class ModItemGroup {
 
-    public static final CreativeModeTab TAB = new CreativeModeTab("Magic Progression") {
+    public static final CreativeModeTab TAB = new CreativeModeTab("magic_progression") {
         @Override
         public @NotNull ItemStack makeIcon() {
             return ModItems.MANA_CRYSTAL.get().getDefaultInstance();

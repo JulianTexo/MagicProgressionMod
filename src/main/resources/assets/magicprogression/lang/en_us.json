@@ -1,7 +1,10 @@
 {
+  "itemGroup.magic_progression": "Magic Progression",
+
   "item.magicprogression.mana_crystal_shard": "Mana Crystal Shard",
   "item.magicprogression.mana_crystal": "Mana Crystal",
   "item.magicprogression.mana_ingot": "Mana Ingot",
+  "item.magicprogression.advanced_mana_ingot": "Advanced Mana Ingot",
 
   "item.magicprogression.stone_rod": "Stone Rod",
   "item.magicprogression.iron_rod": "Iron Rod",
@@ -27,7 +30,7 @@
   "advancements.magicstory.mine_mana_crystal.title": "How it all started!",
   "advancements.magicstory.mine_mana_crystal.description": "Mine Mana Crystal Ore; start your magic journey!",
   "advancements.magicstory.root.title": "Magic Progression",
-  "advancements.magicstory.root.description": "Your journey will be magical!"
-
-
+  "advancements.magicstory.root.description": "Your journey will be magical!",
+  "advancements.magicstory.craft_mana_furnace.description": "Magical smelting.",
+  "advancements.magicstory.craft_mana_furnace.title": "Hot Topic! Kinda?"
 }

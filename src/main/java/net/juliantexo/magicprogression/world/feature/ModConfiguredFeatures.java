@@ -19,10 +19,12 @@ public class ModConfiguredFeatures {
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
             DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, MagicProgression.MOD_ID);
 
+    //Suppliers for all ores (by dimensions)
     public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_MANA_CRYSTAL_ORES = Suppliers.memoize(() -> List.of(
             OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.MANA_CRYSTAL_ORE.get().defaultBlockState()),
             OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.MANA_CRYSTAL_ORE.get().defaultBlockState())));
 
+    //Register the Ores (for all dimensions)
     public static final RegistryObject<ConfiguredFeature<?, ?>> MANA_CRYSTAL_ORE = CONFIGURED_FEATURES.register("mana_crystal_ore",
             () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_MANA_CRYSTAL_ORES.get(),/*vein size*/ 15)));
 

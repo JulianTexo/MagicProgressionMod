@@ -32,7 +32,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> MANA_INFUSING_STATION = registerBlock("mana_infusing_station",
             () -> new ManaInfusingStationBlock(BlockBehaviour.Properties.of(Material.STONE)), ModItemGroup.TAB);
 
-    //Ores
+    /*
+    Ores are DropExperienceBlock(s) that's why they will need the UniformInt.of(x,y) with x being the lowest
+    possible amount of exp dropped and y being the maximum amount of exp
+     */
     public static final RegistryObject<Block> MANA_CRYSTAL_ORE = registerBlock("mana_crystal_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(4f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)),

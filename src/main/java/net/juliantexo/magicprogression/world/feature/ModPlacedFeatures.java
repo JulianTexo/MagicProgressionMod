@@ -14,7 +14,7 @@ public class ModPlacedFeatures {
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
             DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, MagicProgression.MOD_ID);
 
-
+    //Register the batches of spawns
     public static final RegistryObject<PlacedFeature> MANA_CRYSTAL_ORE_PLACED_BATCH_ONE = PLACED_FEATURES.register("mana_crystal_ore_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.MANA_CRYSTAL_ORE.getHolder().get(),
                     commonOrePlacement(22, // VeinsPerChunk

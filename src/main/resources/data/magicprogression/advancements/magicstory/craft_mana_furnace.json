@@ -1,0 +1,35 @@
+{
+  "parent": "magicprogression:magicstory/root",
+  "criteria": {
+    "craft_mana_furnace": {
+      "conditions": {
+        "items": [
+          {
+            "item": "magicprogression:mana_furnace"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.magicstory.craft_mana_furnace.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "magicprogression:mana_furnace"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.magicstory.craft_mana_furnace.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_mana_furnace"
+    ]
+  ]
+}
